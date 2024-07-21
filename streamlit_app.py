@@ -34,7 +34,8 @@ if ingredient_lit:
     ingredient_string =''
     for i in ingredient_lit:
         ingredient_string += i+' '
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        st.subheader(i + 'Nutrition information')
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+i)
 # st.text(fruityvice_response.json())
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 

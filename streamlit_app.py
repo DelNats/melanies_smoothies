@@ -45,8 +45,10 @@ if ingredient_lit:
         st.write('The search value for ', i,' is ', search_on, '.')
 
         st.subheader(i + 'Nutrition information')
+        
+# Importing info from fruityvice.com
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+i)
-# st.text(fruityvice_response.json())
+        # st.text(fruityvice_response.json())
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     # st.write(ingredient_string)
@@ -59,9 +61,9 @@ if ingredient_lit:
 
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered,'+ name_on_order+'!', icon="✅", )
+        st.success('Your Smoothie is ordered, '+ name_on_order+'!', icon="✅", )
 
-# Importing info from fruityvice.com
+
 
 
 

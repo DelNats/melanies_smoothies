@@ -47,7 +47,10 @@ if ingredient_lit:
         st.subheader(i + 'Nutrition information')
         
 # Importing info from fruityvice.com
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+i)
+        # removing response based on fruit ID
+        # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+i)
+        # adding response based on SEARCH_ON
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+SEARCH_ON)
         # st.text(fruityvice_response.json())
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
